@@ -21,7 +21,7 @@ export default function createRequestSaga(type, request) {
         case 'record/LEAGUE':
           param = action.payload.summonerId;
           break;
-        case 'record/MATCH':
+        case 'record/MATCH_LISTS': // matchlists
           param = action.payload.accountId;
           break;
         default:

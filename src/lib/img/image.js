@@ -1,49 +1,58 @@
+const prefixUrlChampion = 'https://opgg-static.akamaized.net/images/medals/';
+const prefixUrlSpell = 'http://ddragon.leagueoflegends.com/cdn/10.3.1/img/';
+
 const image = {
   IRON: {
-    I: 'https://opgg-static.akamaized.net/images/medals/iron_1.png',
-    II: 'https://opgg-static.akamaized.net/images/medals/iron_2.png',
-    III: 'https://opgg-static.akamaized.net/images/medals/iron_3.png',
-    IV: 'https://opgg-static.akamaized.net/images/medals/iron_4.png',
+    I: `${prefixUrlChampion}iron_1.png`,
+    II: `${prefixUrlChampion}iron_2.png`,
+    III: `${prefixUrlChampion}iron_3.png`,
+    IV: `${prefixUrlChampion}iron_4.png`,
   },
   BRONZE: {
-    I: 'https://opgg-static.akamaized.net/images/medals/bronze_1.png',
-    II: 'https://opgg-static.akamaized.net/images/medals/bronze_2.png',
-    III: 'https://opgg-static.akamaized.net/images/medals/bronze_3.png',
-    IV: 'https://opgg-static.akamaized.net/images/medals/bronze_4.png',
+    I: `${prefixUrlChampion}bronze_1.png`,
+    II: `${prefixUrlChampion}bronze_2.png`,
+    III: `${prefixUrlChampion}bronze_3.png`,
+    IV: `${prefixUrlChampion}bronze_4.png`,
   },
   SILVER: {
-    I: 'https://opgg-static.akamaized.net/images/medals/silver_1.png',
-    II: 'https://opgg-static.akamaized.net/images/medals/silver_2.png',
-    III: 'https://opgg-static.akamaized.net/images/medals/silver_3.png',
-    IV: 'https://opgg-static.akamaized.net/images/medals/silver_4.png',
+    I: `${prefixUrlChampion}silver_1.png`,
+    II: `${prefixUrlChampion}silver_2.png`,
+    III: `${prefixUrlChampion}silver_3.png`,
+    IV: `${prefixUrlChampion}silver_4.png`,
   },
   GOLD: {
-    I: 'https://opgg-static.akamaized.net/images/medals/gold_1.png',
-    II: 'https://opgg-static.akamaized.net/images/medals/gold_2.png',
-    III: 'https://opgg-static.akamaized.net/images/medals/gold_3.png',
-    IV: 'https://opgg-static.akamaized.net/images/medals/gold_4.png',
+    I: `${prefixUrlChampion}gold_1.png`,
+    II: `${prefixUrlChampion}gold_2.png`,
+    III: `${prefixUrlChampion}gold_3.png`,
+    IV: `${prefixUrlChampion}gold_4.png`,
   },
   PLATINUM: {
-    I: 'https://opgg-static.akamaized.net/images/medals/platinum_1.png',
-    II: 'https://opgg-static.akamaized.net/images/medals/platinum_2.png',
-    III: 'https://opgg-static.akamaized.net/images/medals/platinum_3.png',
-    IV: 'https://opgg-static.akamaized.net/images/medals/platinum_4.png',
+    I: `${prefixUrlChampion}platinum_1.png`,
+    II: `${prefixUrlChampion}platinum_2.png`,
+    III: `${prefixUrlChampion}platinum_3.png`,
+    IV: `${prefixUrlChampion}platinum_4.png`,
   },
   DIAMOND: {
-    I: 'https://opgg-static.akamaized.net/images/medals/diamond_1.png',
-    II: 'https://opgg-static.akamaized.net/images/medals/diamond_2.png',
-    III: 'https://opgg-static.akamaized.net/images/medals/diamond_3.png',
-    IV: 'https://opgg-static.akamaized.net/images/medals/diamond_4.png',
+    I: `${prefixUrlChampion}diamond_1.png`,
+    II: `${prefixUrlChampion}diamond_2.png`,
+    III: `${prefixUrlChampion}diamond_3.png`,
+    IV: `${prefixUrlChampion}diamond_4.png`,
   },
   MASTER: {
-    I: 'https://opgg-static.akamaized.net/images/medals/master_1.png',
+    I: `${prefixUrlChampion}master_1.png`,
   },
   GRANDMASTER: {
-    I: 'https://opgg-static.akamaized.net/images/medals/grandmaster_1.png',
+    I: `${prefixUrlChampion}grandmaster_1.png`,
   },
   CHALLENGER: {
-    I: 'https://opgg-static.akamaized.net/images/medals/challenger_1.png',
+    I: `${prefixUrlChampion}challenger_1.png`,
   },
 };
+
+// export function championSquareUrl(param) {
+//   return `${prefixUrlSpell}champion/${param}`;
+// }
+export const championSquareUrl = param => `${prefixUrlSpell}champion/${param}`;
+export const spellUrl = spellName => `${prefixUrlSpell}spell/${spellName}.png`;
 
 export default image;

@@ -7,34 +7,38 @@ import RecordListInfo from './RecordMatchListInfo';
  * record 리스트
  */
 
-// const RecordMatchListBlock = styled.div``;
+const style = {
+  outline: 'none',
+  
+};
 
-const RecordMatchList = ({ match }) => {
-  if (match === null) return null;
-  const matches = match.matches;
-  // const matchList = matches.map((info, key) => (
-  //   <RecordListInfo key={key} info={info} />
-  // ));
+const RecordMatchList = ({ matchlists, summoner }) => {
+  if (matchlists === null) return null;
+  const matches = matchlists.matches;
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const rowRenderer = useCallback(
     ({ index, key, style }) => {
       const matchInfo = matches[index];
-      return <RecordListInfo match={matchInfo} key={key} style={style} />;
+      return (
+        <RecordListInfo
+          match={matchInfo}
+          key={key}
+          style={style}
+          summonerName={summoner.name}
+        />
+      );
     },
-    [matches],
+    [matches, summoner.name],
   );
-  // return <RecordMatchListBlock>test</RecordMatchListBlock>;
-  // return <RecordMatchListBlock>{matchList}</RecordMatchListBlock>;
-  // return <RecordMatchListBlock>{rowRenderer}</RecordMatchListBlock>;
   return (
     <List
       width={512}
       height={513}
       rowCount={matches.length}
-      rowHeight={57}
+      rowHeight={257}
       rowRenderer={rowRenderer}
       list={matches}
-      style={{ outline: 'none' }}
+      style={style}
     />
   );
 };

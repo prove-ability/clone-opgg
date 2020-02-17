@@ -15,9 +15,14 @@ const [SUMMONER, SUMMONER_SUCCESS, SUMMONER_FAILURE] = createRequestActionTypes(
 const [LEAGUE, LEAGUE_SUCCESS, LEAGUE_FAILURE] = createRequestActionTypes(
   'record/LEAGUE',
 );
-const [MATCH, MATCH_SUCCESS, MATCH_FAILURE] = createRequestActionTypes(
-  'record/MATCH',
-);
+const [
+  MATCH_LISTS,
+  MATCH_LISTS_SUCCESS,
+  MATCH_LISTS_FAILURE,
+] = createRequestActionTypes('record/MATCH_LISTS');
+// const [MATCH, MATCH_SUCCESS, MATCH_FAILURE] = createRequestActionTypes(
+//   'record/MATCH',
+// );
 
 export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
   key,
@@ -26,16 +31,19 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
 export const initializeForm = createAction(INITIALZE_FORM, value => value);
 export const getSummoner = createAction(SUMMONER, id => id);
 export const getLeague = createAction(LEAGUE, id => id);
-export const getMatch = createAction(MATCH, id => id);
+export const getMatchlists = createAction(MATCH_LISTS, id => id);
+// export const getMatch = createAction(MATCH, id => id);
 
 // 사가 생성
 const summonerSaga = createRequestSaga(SUMMONER, recordAPI.summoner);
 const leagueSaga = createRequestSaga(LEAGUE, recordAPI.league);
-const matchSaga = createRequestSaga(MATCH, recordAPI.match);
+const matchlistsSaga = createRequestSaga(MATCH_LISTS, recordAPI.matchlists);
+// const matchSaga = createRequestSaga(MATCH, recordAPI.match);
 export function* recordSaga() {
   yield takeLatest(LEAGUE, leagueSaga);
   yield takeLatest(SUMMONER, summonerSaga);
-  yield takeLatest(MATCH, matchSaga);
+  yield takeLatest(MATCH_LISTS, matchlistsSaga);
+  // yield takeLatest(MATCH, matchSaga);
 }
 
 const initialState = {
@@ -44,8 +52,10 @@ const initialState = {
   summonerError: null,
   league: null,
   leagueError: null,
-  match: null,
-  matchError: null,
+  matchlists: null,
+  matchlistsError: null,
+  // match: null,
+  // matchError: null,
 };
 
 const record = handleActions(
@@ -74,14 +84,22 @@ const record = handleActions(
       ...state,
       leagueError: message,
     }),
-    [MATCH_SUCCESS]: (state, { payload }) => ({
+    [MATCH_LISTS_SUCCESS]: (state, { payload }) => ({
       ...state,
-      match: payload,
+      matchlists: payload,
     }),
-    [MATCH_FAILURE]: (state, { payload: { message } }) => ({
+    [MATCH_LISTS_FAILURE]: (state, { payload: { message } }) => ({
       ...state,
-      matchError: message,
+      matchlistsError: message,
     }),
+    // [MATCH_SUCCESS]: (state, { payload }) => ({
+    //   ...state,
+    //   match: payload,
+    // }),
+    // [MATCH_FAILURE]: (state, { payload: { message } }) => ({
+    //   ...state,
+    //   matchError: message,
+    // }),
   },
   initialState,
 );

@@ -1,32 +1,32 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import RecordMatchList from '../../components/record/RecordMatchList';
-import { getMatch } from '../../modules/record';
+import { getMatchlists } from '../../modules/record';
 
-const RecordMatchInfoC = () => {
+const RecordMatchListC = () => {
   const dispatch = useDispatch();
-  const { match, matchError, summoner, summonerError } = useSelector(
+  const { matchlists, matchlistsError, summoner, summonerError } = useSelector(
     ({ record }) => ({
-      match: record.match,
-      matchError: record.matchError,
+      matchlists: record.matchlists,
+      matchlistsError: record.matchlistsError,
       summoner: record.summoner,
       summonerError: record.summonerError,
     }),
   );
   useEffect(() => {
     if (summonerError) {
-      console.log('record 오류 발생 - RecordMatchInfoC');
+      console.log('record 오류 발생 - RecordMatchListC');
       console.log(summonerError);
       return;
     }
     if (summoner) {
       console.log('record 발생');
       const accountId = summoner.accountId;
-      dispatch(getMatch({ accountId }));
+      dispatch(getMatchlists({ accountId }));
     }
   }, [dispatch, summoner, summonerError]);
-  if (matchError) return alert(matchError);
-  return <RecordMatchList match={match} />;
+  if (matchlistsError) return alert(matchlistsError);
+  return <RecordMatchList matchlists={matchlists} summoner={summoner} />;
 };
 
-export default RecordMatchInfoC;
+export default RecordMatchListC;

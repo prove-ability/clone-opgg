@@ -4,7 +4,7 @@ const client = axios.create();
 
 // 헤더 설정
 client.defaults.headers.common['X-Riot-Token'] =
-  'RGAPI-e747e140-575f-4396-9ee7-7701bd162d29';
+  'RGAPI-fc58e87f-cdd7-4e5e-8c46-8a390b48db88';
 
 /*
   글로벌 설정 예시:

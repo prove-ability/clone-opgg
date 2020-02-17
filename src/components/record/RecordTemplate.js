@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import palette from '../../lib/styles/palette';
+import { champion } from '../../lib/data/jsonToData';
 
 /**
  * 전전 페이지 라이아웃
@@ -37,7 +38,7 @@ const WhiteBox = styled.div`
   background: white;
   border-radius: 2px;
 `;
-
+champion();
 const RecordTemplate = ({ children }) => {
   return (
     <RecordTemplateBlock>
