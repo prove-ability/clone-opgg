@@ -9,7 +9,6 @@ import RecordListInfo from './RecordMatchListInfo';
 
 const style = {
   outline: 'none',
-  
 };
 
 const RecordMatchList = ({ matchlists, summoner }) => {
@@ -32,10 +31,10 @@ const RecordMatchList = ({ matchlists, summoner }) => {
   );
   return (
     <List
-      width={512}
-      height={513}
+      width={690}
+      height={450}
       rowCount={matches.length}
-      rowHeight={257}
+      rowHeight={80}
       rowRenderer={rowRenderer}
       list={matches}
       style={style}
