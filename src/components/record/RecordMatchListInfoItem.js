@@ -9,6 +9,8 @@ import {
 
 /**
  * 아이템 이미지 컴포넌트
+ *
+ * test
  */
 
 const RecordMatchListInfoItemBlock = styled.div`
