@@ -8,18 +8,13 @@ import styled from 'styled-components';
 const RecordMatchListInfoChampionBlock = styled.div`
   display: flex;
   flex-direction: column;
+  text-align: center;
   .image {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     img {
       width: 2rem;
       /* flex: 2; */
-    }
-    .spell {
-      /* flex: 1; */
-    }
-    .rune {
-      /* flex: 1; */
     }
   }
   .championName {

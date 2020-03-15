@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import palette from '../../lib/styles/palette';
-import { champion } from '../../lib/util/jsonToData';
 
 /**
  * 전전 페이지 라이아웃

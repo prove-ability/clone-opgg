@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { List } from 'react-virtualized';
-import RecordListInfo from './RecordMatchListInfo';
+import RecordMatchListInfo from './RecordMatchListInfo';
 // import styled from 'styled-components';
 
 /**
@@ -19,7 +19,7 @@ const RecordMatchList = ({ matchlists, summoner }) => {
     ({ index, key, style }) => {
       const matchInfo = matches[index];
       return (
-        <RecordListInfo
+        <RecordMatchListInfo
           match={matchInfo}
           key={key}
           style={style}

@@ -19,14 +19,17 @@ import RecordMatchListInfoWard from './RecordMatchListInfoWard';
  */
 const RecordMatchListInfoBlock = styled.div`
   & + & {
-    border-top: 1px solid #dee2e6;
+    border-top: 2px solid #dee2e6;
   }
-  &:nth-child(even) {
+  /* &:nth-child(even) {
     background: #f8f9fa;
-  }
+  } */
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  .rightLine {
+    border-right: 2px solid #d4e4fe;
+  }
 `;
 
 const RecordMatchListInfo = ({ match, style, summonerName }) => {
@@ -60,7 +63,7 @@ const RecordMatchListInfo = ({ match, style, summonerName }) => {
   style.background = backgroundColor;
   return (
     <RecordMatchListInfoBlock style={style}>
-      <RecordMatchListInfoWin win={win} />
+      <RecordMatchListInfoWin className="rightLine" win={win} />
       <RecordMatchListInfoChampion
         championImage={championImage}
         championName={championName}

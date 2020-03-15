@@ -28,6 +28,7 @@ const RecordMatchListInfoUsers = ({ getUserList }) => {
       <div className="imageTool">
         {team100.map((info, key) => (
           <img
+            key={key}
             className="playerChampionImage"
             src={championSquareUrl(info.championImage)}
             alt="championImage"
@@ -37,6 +38,7 @@ const RecordMatchListInfoUsers = ({ getUserList }) => {
       <div className="imageTool">
         {team200.map((info, key) => (
           <img
+            key={key}
             className="playerChampionImage"
             src={championSquareUrl(info.championImage)}
             alt="championImage"

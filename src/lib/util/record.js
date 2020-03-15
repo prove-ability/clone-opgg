@@ -3,14 +3,10 @@ import { championSquareUrl } from '../img/image';
 import moment from '../../../node_modules/moment/moment';
 
 export function getMatchInfo(match, matchDetail, summonerName) {
-  console.log(matchDetail);
   const championInfo = champion(match.champion);
   const championImage = championSquareUrl(championInfo.image.full);
   const championName = championInfo.name;
-  const matchTime = moment().diff(
-    moment(match.timestamp).format('YYYY-MM-DD hh:mm:ss a'),
-    'days',
-  );
+  const matchTime = moment(match.timestamp).fromNow();
   const selectParticipantId = () => {
     const res = matchDetail.participantIdentities.filter(
       info => info.player.summonerName === summonerName,
@@ -84,6 +80,7 @@ export function getMatchInfo(match, matchDetail, summonerName) {
       };
       if (100 === info.teamId) team100.push(userObj);
       if (200 === info.teamId) team200.push(userObj);
+      return null;
     });
     return [team100, team200];
   };
