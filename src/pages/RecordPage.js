@@ -6,13 +6,11 @@ import RecordMatchInfoC from '../containers/record/RecordMatchListC';
 
 const RecordPage = () => {
   return (
-    <>
-      <RecordTemplate>
-        <RecordFormC />
-        <RecordSummonerInfoC />
-        <RecordMatchInfoC />
-      </RecordTemplate>
-    </>
+    <RecordTemplate>
+      <RecordFormC />
+      <RecordSummonerInfoC />
+      <RecordMatchInfoC />
+    </RecordTemplate>
   );
 };
 

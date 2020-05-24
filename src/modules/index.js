@@ -11,5 +11,5 @@ const rootReducer = combineReducers({
 export function* rootSaga() {
   yield all([recordSaga()]);
 }
-
+console.log(rootReducer);
 export default rootReducer;
