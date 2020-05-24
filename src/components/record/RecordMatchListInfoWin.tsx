@@ -17,7 +17,7 @@ const RecordMatchListInfoWinBlock = styled.div`
   .win {
     color: #c6443e;
     font-weight: bold;
-    ${props =>
+    ${(props: RecordMatchListInfoWinBlockProps) =>
       props.win &&
       css`
         color: #1a78ae;
@@ -25,11 +25,14 @@ const RecordMatchListInfoWinBlock = styled.div`
   }
 `;
 
-const RecordMatchListInfoWin = ({ win }) => {
+interface RecordMatchListInfoWinBlockProps {
+  win: boolean;
+  className?: string;
+}
+
+const RecordMatchListInfoWin = ({ win }: RecordMatchListInfoWinBlockProps) => {
   return (
     <RecordMatchListInfoWinBlock win={win}>
-      {/* <div className="role">{transRole(role)}</div>
-      <div className="matchTime">{matchTime}일 전</div> */}
       <div className="win">{win === true ? '승' : '패'}</div>
     </RecordMatchListInfoWinBlock>
   );

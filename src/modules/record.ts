@@ -28,10 +28,13 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
   key,
   value,
 }));
-export const initializeForm = createAction(INITIALZE_FORM, value => value);
-export const getSummoner = createAction(SUMMONER, id => id);
-export const getLeague = createAction(LEAGUE, id => id);
-export const getMatchlists = createAction(MATCH_LISTS, id => id);
+export const initializeForm = createAction(
+  INITIALZE_FORM,
+  (value: any) => value,
+);
+export const getSummoner = createAction(SUMMONER, (id: any) => id);
+export const getLeague = createAction(LEAGUE, (id: any) => id);
+export const getMatchlists = createAction(MATCH_LISTS, (id: any) => id);
 // export const getMatch = createAction(MATCH, id => id);
 
 // 사가 생성
@@ -54,41 +57,39 @@ const initialState = {
   leagueError: null,
   matchlists: null,
   matchlistsError: null,
-  // match: null,
-  // matchError: null,
 };
 
 const record = handleActions(
   {
-    [CHANGE_FIELD]: (state, { payload: { key, value } }) =>
-      produce(state, draft => {
+    [CHANGE_FIELD]: (state: any, { payload: { key, value } }: any) =>
+      produce(state, (draft: { [x: string]: any }) => {
         draft[key] = value;
       }),
-    [INITIALZE_FORM]: (state, { payload }) =>
-      produce(state, draft => {
+    [INITIALZE_FORM]: (state: any, { payload }: any) =>
+      produce(state, (draft: { [x: string]: any }) => {
         draft[payload] = initialState[payload];
       }),
-    [SUMMONER_SUCCESS]: (state, { payload }) => ({
+    [SUMMONER_SUCCESS]: (state: any, { payload }: any) => ({
       ...state,
       summoner: payload,
     }),
-    [SUMMONER_FAILURE]: (state, { payload: { message } }) => ({
+    [SUMMONER_FAILURE]: (state: any, { payload: { message } }: any) => ({
       ...state,
       summonerError: message,
     }),
-    [LEAGUE_SUCCESS]: (state, { payload }) => ({
+    [LEAGUE_SUCCESS]: (state: any, { payload }: any) => ({
       ...state,
       league: payload[0],
     }),
-    [LEAGUE_FAILURE]: (state, { payload: { message } }) => ({
+    [LEAGUE_FAILURE]: (state: any, { payload: { message } }: any) => ({
       ...state,
       leagueError: message,
     }),
-    [MATCH_LISTS_SUCCESS]: (state, { payload }) => ({
+    [MATCH_LISTS_SUCCESS]: (state: any, { payload }: any) => ({
       ...state,
       matchlists: payload,
     }),
-    [MATCH_LISTS_FAILURE]: (state, { payload: { message } }) => ({
+    [MATCH_LISTS_FAILURE]: (state: any, { payload: { message } }: any) => ({
       ...state,
       matchlistsError: message,
     }),

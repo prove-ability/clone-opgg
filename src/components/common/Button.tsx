@@ -2,6 +2,12 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import palette from '../../lib/styles/palette';
 
+interface ButtonInterface {
+  fullWidth: boolean;
+  indigo: boolean;
+  children?: string;
+}
+
 const StyledButton = styled.button`
   border: none;
   border-radius: 4px;
@@ -17,7 +23,7 @@ const StyledButton = styled.button`
     background: ${palette.gray[6]};
   }
 
-  ${props =>
+  ${(props: ButtonInterface) =>
     props.fullWidth &&
     css`
       padding-top: 0.75rem;
@@ -26,7 +32,7 @@ const StyledButton = styled.button`
       font-size: 1.125rem;
     `}
 
-  ${props =>
+  ${(props: ButtonInterface) =>
     props.indigo &&
     css`
       background: ${palette.indigo[5]};
@@ -36,6 +42,6 @@ const StyledButton = styled.button`
     `}
 `;
 
-const Button = props => <StyledButton {...props} />;
+const Button = (props: ButtonInterface) => <StyledButton {...props} />;
 
 export default Button;

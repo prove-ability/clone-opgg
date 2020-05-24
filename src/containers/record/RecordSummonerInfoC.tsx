@@ -13,7 +13,6 @@ const RecordSummonerInfoC = () => {
       summonerError: record.summonerError,
     }),
   );
-
   // record 성공/실패 처리
   useEffect(() => {
     if (summonerError) {
@@ -27,7 +26,10 @@ const RecordSummonerInfoC = () => {
       dispatch(getLeague({ summonerId }));
     }
   }, [dispatch, summoner, summonerError]);
-  if (leagueError) return alert(leagueError);
+  if (leagueError) {
+    alert(leagueError);
+    return <></>;
+  }
   return <RecordSummonerInfo league={league} />;
 };
 

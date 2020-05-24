@@ -10,7 +10,7 @@ const RecordSearchFormC = () => {
   }));
 
   // 인풋 변경 이벤트 헨들러
-  const onChange = e => {
+  const onChange = (e) => {
     const { value, name } = e.target;
     dispatch(
       changeField({
@@ -21,7 +21,7 @@ const RecordSearchFormC = () => {
   };
 
   // 폼 등록 이벤트 헨들러
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     dispatch(getSummoner({ username }));
   };

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import RecordMatchList from '../../components/record/RecordMatchList';
 import { getMatchlists } from '../../modules/record';
+import RecordMatchList from '../../components/record/RecordMatchList';
 
 const RecordMatchListC = () => {
   const dispatch = useDispatch();
@@ -25,7 +25,10 @@ const RecordMatchListC = () => {
       dispatch(getMatchlists({ accountId }));
     }
   }, [dispatch, summoner, summonerError]);
-  if (matchlistsError) return alert(matchlistsError);
+  if (matchlistsError) {
+    alert(matchlistsError);
+    return <></>;
+  }
   return <RecordMatchList matchlists={matchlists} summoner={summoner} />;
 };
 

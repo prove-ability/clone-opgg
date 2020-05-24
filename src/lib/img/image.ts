@@ -49,11 +49,13 @@ const image = {
   },
 };
 
-export const championSquareUrl = param => `${prefixUrlSpell}champion/${param}`;
-export const spellUrl = spellName => `${prefixUrlSpell}spell/${spellName}.png`;
-export const runeUrl = (runeNum, type) =>
+export const championSquareUrl = (param: any) =>
+  `${prefixUrlSpell}champion/${param}`;
+export const spellUrl = (spellName: any) =>
+  `${prefixUrlSpell}spell/${spellName}.png`;
+export const runeUrl = (runeNum: any, type: boolean) =>
   `${prefixUrlOpgg}lol/${type === true ? 'perkStyle' : 'perk'}/${runeNum}.png`;
-export const itemUrl = item => `${prefixUrlOpgg}lol/item/${item}.png`;
+export const itemUrl = (item: any) => `${prefixUrlOpgg}lol/item/${item}.png`;
 // https://opgg-static.akamaized.net/css3/sprite/images/icon-buildred-p.png
 // export const redIconUrl = `${prefixUrlOpgg}icon-buildred-p.png`;
 export const redIconUrl = `https://opgg-static.akamaized.net/css3/sprite/images/icon-buildred-p.png`;

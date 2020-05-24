@@ -37,7 +37,7 @@ const RecordMatchListInfo = ({ match, style, summonerName }) => {
   const id = useRef(match.gameId);
   useEffect(() => {
     const res = async () => await getMatch(id.current);
-    res().then(res => setMatchDetail(res.data));
+    res().then((res) => setMatchDetail(res.data));
   }, [match]);
   if (matchDetail === null) return null;
   const [
@@ -78,7 +78,7 @@ const RecordMatchListInfo = ({ match, style, summonerName }) => {
         rune2Num={rune2Num}
       />
       <RecordMatchListInfoUsers getUserList={getUserList} />
-      <RecordMatchListInfoItem item={item} />
+      <RecordMatchListInfoItem item={item} win={win} />
       <RecordMatchListInfoLvGCs
         champLevel={champLevel}
         goldEarned={goldEarned}

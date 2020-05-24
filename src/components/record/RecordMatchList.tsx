@@ -1,17 +1,21 @@
 import React, { useCallback } from 'react';
 import { List } from 'react-virtualized';
 import RecordMatchListInfo from './RecordMatchListInfo';
-// import styled from 'styled-components';
 
 /**
- * record 리스트
+ * 리스트
  */
+
+interface RecordMatchListProps {
+  matchlists: any;
+  summoner: any;
+}
 
 const style = {
   outline: 'none',
 };
 
-const RecordMatchList = ({ matchlists, summoner }) => {
+const RecordMatchList = ({ matchlists, summoner }: RecordMatchListProps) => {
   if (matchlists === null) return null;
   const matches = matchlists.matches;
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -42,4 +46,4 @@ const RecordMatchList = ({ matchlists, summoner }) => {
   );
 };
 
-export default React.memo(RecordMatchList);
+export default RecordMatchList;

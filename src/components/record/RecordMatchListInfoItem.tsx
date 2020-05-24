@@ -13,6 +13,11 @@ import {
  * test
  */
 
+interface RecordMatchListInfoItemProps {
+  item: any;
+  win: boolean;
+}
+
 const RecordMatchListInfoItemBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -36,7 +41,10 @@ const RecordMatchListInfoItemBlock = styled.div`
   }
 `;
 
-const RecordMatchListInfoItem = ({ item, win, visionWardsBoughtInGame }) => {
+const RecordMatchListInfoItem = ({
+  item,
+  win,
+}: RecordMatchListInfoItemProps) => {
   return (
     <RecordMatchListInfoItemBlock>
       <section className="top">
